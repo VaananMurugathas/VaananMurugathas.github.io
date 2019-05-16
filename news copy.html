@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>News</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #b3d9ff
+}
+header {
+  background-color: #b3d9ff;
+  padding: 3px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #cce6ff;
+  padding: 10px;
+}
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+li:last-child {
+  border-right: none;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #6D71E4;
+}
+#map {
+  height: 400px; 
+  width: 60%;  
+ }
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="finallayout.html">Home</a></li>
+  <li><a class="active" href="news.html">Resources</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right;background-color: #8080ff"><a href="#about">Login</a></li>
+</ul>
+
+<header>
+  <h2>Further Reading</h2>
+</header>
+
+<section>
+  
+  <article>
+    <h1>What is the problem?</h1>
+    <p><a href="https://canadians.org/fn-water">Understand the basics of the issue that indigenous communities face.</a></p>
+    <p><br><a href="https://canadians.org/drinking-water">See all the drinking water advisories across Canada.</a></p>
+    <p><br><a href="https://www.bbc.com/news/world-us-canada-44961490">Daily issues that these communities live with.</a></p>
+    <p><br><a href="https://www.washingtonpost.com/world/the_americas/third-world-conditions-many-of-canadas-indigenous-people-cant-drink-the-water-at-home/2018/10/14/c4f429b4-bc53-11e8-8243-f3ae9c99658a_story.html?noredirect=on&utm_term=.b6481fadec7f">More extreme cases of issues that have been caused by water contamination in these communities.</a></p>
+    <br><h1>How are we addressing the problem?</h1>
+    <p><br><a href="https://www.cbc.ca/news/politics/liberal-first-nations-boilwater-advisories-1.4500068">What is the government doing?</a></p>
+    <p><br><a href="https://www.amnesty.ca/our-work/issues/indigenous-peoples/indigenous-peoples-in-canada/the-right-to-water">What are non-governmental organisations doing?</a></p>
+    <p><br><a href="https://www.cbc.ca/news/politics/canada-election-2015-justin-trudeau-first-nations-boil-water-advisories-1.3258058">What has the government promised?</a></p>
+  </article>
+</section>
+
+</body>
+</html>

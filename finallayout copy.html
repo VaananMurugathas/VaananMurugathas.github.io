@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Water contamination</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #b3d9ff
+}
+header {
+  background-color: #b3d9ff;
+  padding: 3px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #cce6ff;
+  padding: 10px;
+}
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+li:last-child {
+  border-right: none;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #6D71E4;
+}
+#map {
+  height: 400px; 
+  width: 60%;  
+ }
+ #files:hover {
+  background-color:blue;
+ }
+</style>
+</head>
+<body>
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="news.html">Resources</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right;background-color: #8080ff"><a  href="#about">Login</a></li>
+</ul>
+<header>
+  <h2>Detect Water Contamination in Your Town</h2>
+</header>
+  <article>
+    <center><h1>Why is this a problem?</h1></center>
+    <center><p>Think back to the last time you enjoyed a good amount of excercise. Now imagine taking a nice swig of water right after that. Drinking water is something that we have incorpporated into our everyday lives and yet many still take this right we have for granted. When people think about water quality issues they often look to external countries and think about water quality there, however even in our nation over a hundred indigenous communities don't have access to clean drinking water. We need to address this problem so to raise awareness about the problem and in the future send the appropriate kits to locations please read belwo. </p></center>
+  </article>
+  
+  <article>
+    <center><h1>What can you do?</h1></center>
+    <center><p>You have probably noticed by now the map below this article. The map has various markers on it displaying locations which have been confirmed for having water contamination. The way that the water is tested is by having you make your own diy spectrometer and attaching it to your phone camera. You can find out how to make this spectrometer with this <a href="https://publiclab.org/wiki/foldable-spec">link</a>. Once you have made your spectrometer and taken a photo of a water sample all that you have to do is upload your image below. We will be able to geotag your photo as long as you have location services turned on. By uploading spectrums of water sources near you, you are adding more to the database and showing everybody just how serious of an issue water contamination is in canada.</p></center>
+  </article>
+</section>
+<center><div id="map"></div></center>
+
+<!-- <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form> -->
+<center><input type="file" id="files" oninput="mapmaker()" /></center>
+<output id = "img"></output>
+<script>
+function initMap() {
+  var home = {lat: 60.366356, lng: -109.752300};
+  var place = {lat: 43.893400, lng: -79.312754};
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 3, center: home});
+}
+
+  // var marker = new google.maps.Marker({position: home, map: map});
+
+  // var marker2 = new google.maps.Marker({position: place, map: map});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+<script>
+// // document.getElementById("files") = function() {
+document.getElementById('files').addEventListener("change", mapmaker, false);
+// document.getElementById('files').oninput = mapmaker()
+function mapmaker() {
+img_exif = document.getElementById("img")
+console.log("mapmaker works");
+    EXIF.getData("img", function() {
+
+        myData = img_exif;
+        console.log("it works");
+        // console.log(myData.exifdata);
+
+        // document.getElementById('pic-info').innerHTML = 'This photo was taken on ' + myData.exifdata.DateTime + ' with a ' + myData.exifdata.Make + ' ' + myData.exifdata.Model;
+        // // Calculate latitude decimal
+        // var latDegree = myData.exifdata.GPSLatitude[0].numerator;
+        // var latMinute = myData.exifdata.GPSLatitude[1].numerator;
+        // var latSecond = myData.exifdata.GPSLatitude[2].numerator;
+        // var latDirection = myData.exifdata.GPSLatitudeRef;
+        
+        // var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
+        // console.log(latFinal);
+
+        // // Calculate longitude decimal
+        // var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
+        // var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
+        // var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
+        // var lonDirection = myData.exifdata.GPSLongitudeRef;
+
+        // var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
+        // console.log(lonFinal);
+
+    });
+  }
+
+
+
+function ConvertDMSToDD(degrees, minutes, seconds, direction) {
+    
+    var dd = degrees + (minutes/60) + (seconds/3600);
+    
+    if (direction == "S" || direction == "W") {
+        dd = dd * -1; 
+    }
+    
+    return dd;
+}
+
+
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbdhonZYDiRGQdMSfUQZMvH9InYNKyyBU&callback=initMap">>
+</script>
+
+<article>
+  <center><h1>Why should you contribute?</h1></center>
+  <center><p>It's very important to contribute because this is the easiest possible method to lead to change quickly and effectively. Why will this lead to change you ask? By showing the vast extent of water contamination in Canada on a map it will force the government to put more and more resources into solving this major problem in our society and it will also allow us to see the contamination in different regions in order to allow us to respond accordingly.</p></center>
+</article>
+</body>
+</html>
